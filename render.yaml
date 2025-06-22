@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: downloader-bot
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn keep_alive:app --bind 0.0.0.0:10000 & python main.py
